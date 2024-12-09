@@ -1,0 +1,141 @@
+/* Reset */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #2C3E50; /* Azul marino */
+}
+h1, p {
+    margin: 0;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: linear-gradient(to right, #2C3E50, #3498DB); /* Degradado */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+#logo {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 5px 10px; /* Espaciado interno */
+    color: #ECF0F1; /* Blanco claro */
+    background: linear-gradient(to right, #2C3E50, #3498DB);
+    border: 3px solid silver;
+    border-style: groove;
+    border-radius: 0.5cm;
+    border-color: #ECF0F1;
+    text-align: center;
+    
+}
+
+
+.menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    font-size: 20px;
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0 15px;
+    cursor: pointer;
+    color: white; /* Texto en blanco */
+    font-weight: bold;
+}
+
+.menu li:hover {
+    text-decoration: underline;
+}
+
+/* Redes sociales */
+.redesSociales {
+    display: flex;
+    gap: 10px;
+}
+
+.redesSociales i {
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.redesSociales i:hover {
+    color: indigo; /* Cuando pasamos por las redes sociales se colorean de este color */
+}
+
+/* Bienvenida */
+.bienvenida {
+    background: linear-gradient(to bottom, #5D8AA8, #F0F8FF); /* Degradado */
+    text-align: center;
+    padding: 50px 20px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 5px solid #2C3E50; /* Línea decorativa */
+}
+
+.bienvenida h1 {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.bienvenida h2 {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: white;
+    font-weight: bold;
+}
+
+/* Menú de búsqueda */
+.menuBusqueda {
+    display: flex;
+    gap: 10px;
+}
+
+#textoBusqueda {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #446b85; /* Azul acorde al estilo de la página */
+    border-radius: 5px;
+    width: 400px;
+    background-color: #FFFFFF;
+}
+
+#botonBusqueda {
+    background: linear-gradient(to right, #2C3E50, #3498DB); /* Degradado */
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    color: white;
+    border-style: outset;
+    border-color:#1B2631;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+.menuBusqueda button:hover {
+    background: linear-gradient(to right, #1B2631, #2C3E50); /* Más oscuro */
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(to right, #2C3E50, #3498DB); /* Degradado */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+}
