@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar Sesion</title>
+    <link rel="stylesheet" href="iniciarSesion.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="login">
+        <span id="logo"><a href="../index.html">MDNST</a></span>
+        <h2>Inicia Sesión en MediaNest</h2>
+        <form action="../Controlador/controladorInicioSesion.php" method="POST">
+            <label for="user">Usuario</label>
+            <input type="text" name="user" id="user" required>
+            <label for="password">Contraseña</label>
+            <div id="pass-contenedor">
+                <input type="password" name="password" id="password" required>
+                <button id="mostrarPass">👁️</button>
+            </div>
+            <button type="submit">Iniciar Sesión</button>
+            <p id="registro">¿No eres usuario? Unete a MediaNest <a id = "linkRegistro" href="Registro.html">aquí</a></p>
+        </form>
+    </div>
+    <script>
+         // Función para mostrar o esconder la contraseña
+        function mostrarContraseña(event) {
+            event.preventDefault(); // Evita que el formulario se envíe al pulsar el botón
+            let passUsuario = $('#password');
+            let passType = passUsuario.attr('type');
+            if (passType === 'password') {
+                passUsuario.attr('type', 'text');
+            } else {
+                passUsuario.attr('type', 'password');
+            }
+        }
+        mostrarPass = $('#mostrarPass');
+        mostrarPass[0].addEventListener('click', mostrarContraseña);
+    </script>
+</body>
+</html>

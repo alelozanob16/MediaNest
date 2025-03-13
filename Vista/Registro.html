@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+    <link rel="stylesheet" href="Registro.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="registrarse">
+        <span id="logo"><a href="/index.html">MDNST</a></span>
+        <h2>Crea una cuenta en MediaNest</h2>
+        <form id="formRegistro" action="../Controlador/controladorRegistroNuevoUsuario.php" method="POST">
+            <label for="username">Nombre de Usuario</label>
+            <input type="text" name="username" id="username">
+            <label for="mail">Correo Electrónico</label>
+            <input type="email" name="mail" id="mail">
+            <label for="pass">Contraseña</label>
+            <div id="pass-contenedor">
+                <input type="password" name="pass" id="pass">
+                <button id="mostrarPass2">👁️</button>
+            </div>
+            <button type="submit">Regístrate</button>
+        </form>
+    </div>
+    <script>
+    // Función para mostrar o esconder la contraseña
+    function mostrarContraseña(event) {
+        event.preventDefault(); // Evita que el formulario se envíe al pulsar el botón
+        let passUsuario = $('#pass');
+        let passType = passUsuario.attr('type');
+        if (passType === 'password') {
+            passUsuario.attr('type', 'text');
+        } else {
+            passUsuario.attr('type', 'password');
+        }
+    }
+    mostrarPass = $('#mostrarPass2');
+    mostrarPass[0].addEventListener('click', mostrarContraseña);
+    </script>
+    <script>
+    //Función para evitar que se envie el formulario si se dejan campos vacíos
+    function envioVacio(event){
+        let username = $('#username').val().trim();
+        let mail = $('#mail').val().trim();
+        let pass = $('#pass').val().trim();
+        //Declaramos las variables en base al valor y quitamos posibles espacios blancos que se hayan puesto por error
+        if(username === ""  || mail === "" || pass === ""){
+            event.preventDefault();
+            alert("El nombre del usuario, correo electrónico y la contraseña no pueden estar vacío.");
+        }
+    }
+    formularioRegistro = $('#formRegistro');
+    formularioRegistro[0].addEventListener('submit', envioVacio);
+    </script>
+</body>
+</html>

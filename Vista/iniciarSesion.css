@@ -1,0 +1,131 @@
+#login {
+    background: linear-gradient(to right, #2C3E50, #3498DB);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    padding-top: 50px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #fff;
+    text-align: center;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 40px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    text-align: left;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%; /* Asegura que el input ocupe el 100% del contenedor */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+}
+
+button {
+    padding: 10px;
+    color: #fff;
+    background-color: darkgreen;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    text-decoration: underline;
+}
+
+label {
+    color: #ccc;
+}
+
+#logo {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px 10px;
+    color: #ECF0F1;
+    background: linear-gradient(to right, #2C3E50, #3498DB);
+    border: 3px solid silver;
+    border-style: groove;
+    border-radius: 0.5cm;
+    border-color: #ECF0F1;
+    text-align: center;
+}
+
+#registro {
+    font-size: large;
+    font-family: 'Roboto', Arial, sans-serif;
+    margin-top: 30px;
+    color: #fff;
+}
+
+#linkRegistro {
+    font-size: large;
+    font-family: 'Roboto', Arial, sans-serif;
+    color: aquamarine;
+}
+
+#linkRegistro:hover{
+    text-decoration:underline;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+#pass-contenedor {
+    position: relative;
+    width: 100%; /* Asegura que el contenedor ocupe el 100% del ancho */
+}
+
+#password {
+    width: 100%; /* El input de contraseña ocupa el 100% del contenedor */
+    padding-right: 40px; /* Añade padding a la derecha para evitar que el texto se solape con el botón */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+}
+
+#mostrarPass {
+    text-decoration: none;
+    position: absolute;
+    right: 10px;
+    top: 40%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    color: #333;
+}
+
+#mostrarPass:focus {
+    outline: none;
+}
