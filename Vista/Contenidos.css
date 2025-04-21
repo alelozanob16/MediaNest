@@ -1,0 +1,62 @@
+/*En esta hoja de estilos le damos una estética a las
+páginas de los contenidos de ocio audiovisuales*/
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f2f5;
+    color: #333333;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 20px;
+    font-size: 2.5rem;
+    color: #ECF0F1;
+    background: linear-gradient(to right, #2C3E50, #3498DB);;
+}
+
+/* Contenedor general */
+.contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* 📌 Estilos comunes para todos los ítems */
+.item {
+    background-color: #D3D3D3;;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 250px;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.item:hover {
+    transform: scale(1.05);
+}
+
+/* Imágenes */
+.item img {
+    width: 75%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Título */
+.item h3 {
+    font-size: 1.3rem;
+    margin: 10px 0;
+    color: #333333;
+}
+
+/* Información adicional */
+.item p {
+    font-size: 0.9rem;
+    color: #333333;
+    margin: 5px 0;
+}

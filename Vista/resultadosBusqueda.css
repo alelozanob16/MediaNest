@@ -1,0 +1,63 @@
+/* Contenedor de los resultados */
+.resultados {
+    display: flex;
+    flex-wrap: wrap;  /* Permite que los elementos pasen a la siguiente línea si no caben */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    gap: 30px; /* Espacio entre elementos */
+    padding: 20px;
+}
+
+/* Tarjetas de los resultados */
+.item {
+    width: 300px; /* Aumenta el ancho */
+    background: none; /* Hace que el fondo sea transparente */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    padding-bottom: 10px; /* Espacio inferior */
+}
+
+.item:hover {
+    transform: scale(1.05); /* Efecto de agrandamiento */
+}
+
+/* Imagen de cada tarjeta */
+.item img {
+    width: 75%;
+    height: 350px; /* Ajusta la altura para imágenes más grandes */
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+}
+
+/* Título */
+.item h3 {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #333333;
+}
+
+/* Texto de descripción */
+.item p {
+    font-size: 16px;
+    color: #333333; /* Texto blanco para contraste */
+    margin: 5px 15px;
+    text-align: left; /* Alineación izquierda para los atributos */
+}
+
+/* Estilo para los títulos de los atributos */
+.item p strong {
+    color: #333333;
+    font-weight: bold;
+}
+
+/* Fondo de la página, igual al resto del sitio */
+body {
+    background: linear-gradient(to bottom, #7aa7cf, #b0cde8); /* Mismo fondo degradado */
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    text-align: center;
+}

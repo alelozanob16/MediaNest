@@ -11,7 +11,7 @@ function getUsuarios($user, $pass){
     if(!$conexion){
         die('<br>Error en la conexión a la base de dato: ' . mysqli_connect_error());
     }
-    $sql = "SELECT UserName, Rol, Pass FROM Usuarios WHERE UserName = '$user' AND Pass = '$pass'";
+    $sql = "SELECT ID, UserName, Rol, Pass FROM Usuarios WHERE UserName = '$user' AND Pass = '$pass'";
     $result = mysqli_query($conexion, $sql);
     //Si la consulta obtiene valores, los obtenemos
     if(mysqli_num_rows($result) > 0){

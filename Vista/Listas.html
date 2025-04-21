@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Listas</title>
+    <link rel="stylesheet" href="Listas.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Mis Listas</h1>
+        <button id="crearLista">Crear Lista</button>
+        <button id="eliminarLista">Eliminar Lista</button>
+    </header>
+    
+    <div id="crearListaForm" style="display:none;">
+        <label for="nombreListaInput">Nombre de la lista:</label>
+        <input type="text" id="nombreListaInput" placeholder="Ej. Mis Favoritos">
+        <button id="guardarLista">Guardar Lista</button>
+    </div>
+    
+    <div class="contenedor-listas" id="listas">
+        <!-- Aquí se cargarán las listas del usuario -->
+    </div> 
+    <!-- Contenedor para los contenidos de una lista seleccionada -->
+    <div id="contenidoListaContainer" style="margin-top: 30px; display: none;">
+        <h2>Contenido de la Lista: <span id="nombreListaSeleccionada"></span></h2>
+        
+        <div id="contenedorContenidoLista">
+            <!-- Aquí se mostrarán los contenidos de la lista -->
+        </div>
+
+        <h3>Añadir contenido</h3>
+        <label for="tipoContenido">Tipo:</label>
+        <select id="tipoContenido">
+            <option value="Pelicula">Película</option>
+            <option value="Serie">Serie</option>
+            <option value="Videojuego">Videojuego</option>
+        </select>
+
+        <label for="idContenido">Selecciona contenido:</label>
+        <select id="idContenido">
+            <option value="">Selecciona un tipo primero</option>
+        </select>
+        
+        <button id="agregarContenido">Añadir</button>
+    </div>
+    <script src="Listas.js"></script>
+
+</body>
+</html>

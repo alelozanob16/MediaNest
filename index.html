@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
     <link rel="stylesheet" href="Vista/PagPrincipal.css">
+    <link rel="stylesheet" href="Vista/resultadosBusqueda.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="Vista/PagPrincipal.js"></script>
@@ -22,7 +23,9 @@
                 <li id="pelis">Películas</li>
                 <li id="series">Series</li>
                 <li id="juegos">Videojuegos</li>
+                <li id="listas">Mis Listas</li>
                 <li id="iniciarSesion">Iniciar Sesión</li>
+                <li id="cerrarSesion">Cerrar Sesion</li>
             </ul>
         </nav>
         <!-- Redes Sociales -->
@@ -38,10 +41,10 @@
         <h2>Tu ocio es valioso, descubre lo que más te gusta.</h2>
         <!-- Barra de búsqueda -->
         <div class="menuBusqueda">
-            <form action="Modelo/ObtencionDatos_VolcadoBD.php" method="post"></form>
-            <input id="textoBusqueda" type="text" name="consulta" placeholder="Busca una película, serie, libro o videojuego...">
+            <input id="textoBusqueda" type="text" name="consulta" placeholder="Busca una película, serie o videojuego...">
             <input id="botonBusqueda" type="submit" value="Buscar">
         </div>
+        <div id="resultadoBusqueda"></div>
     </main>
 </body>
 </html>

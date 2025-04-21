@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Contenidos.css">
+    <title>Videojuegos</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Cargar jQuery -->
+</head>
+<body>
+    <h1>Videojuegos</h1>
+    <div class="contenedor" id="contenedorJuegos">
+        <!-- Aquí se cargarán los juegos a través del script de JS -->
+    </div>
+    <script>
+        //Declaramos una variable para saber si el usuario tiene rol de admin
+        let esAdmin = false;
+    
+        //Usamos jQuery para hacer la solicitud AJAX con $.get
+        $(document).ready(function() {
+            // Primero comprobamos el estado de la sesión y el rol del usuario
+            $.get('../Controlador/controladorInicioSesion.php')
+                .done(function(respuesta) {
+                    const datos = JSON.parse(respuesta);
+                    if (datos.estado === '1' && datos.Rol === 'admin') {
+                        esAdmin = true;
+                    }
+                })
+                .then(function() {
+                    //Luego de saber si es admin, cargamos los videojuegos
+                    cargarVideojuegos();
+                });
+    
+            //Función para cargar los videojuegos
+            function cargarVideojuegos() {
+                $.get('../Controlador/controladorVideojuegos.php')
+                    .done(function(data) {
+                        const juegos = JSON.parse(data);
+                        juegos.forEach(function(juego) {
+                            const div = $('<div>').addClass('item');
+                            div.html(`
+                                <img src="imagenes/${juego.Nombre}.jpg" alt="${juego.Nombre}">
+                                <h3>${juego.Nombre}</h3>
+                                <p>Género: ${juego.Genero}</p>
+                                <p>Plataforma: ${juego.Plataforma}</p>
+                                <p>Desarrolladora: ${juego.Desarrolladora}</p>
+                                <p>Fecha de salida: ${new Date(juego.FechaSalida).toLocaleDateString()}</p>
+                            `);
+                            if (esAdmin) {
+                                div.append(`<button class="btn-eliminar" data-id="${juego.ID}" data-tipo="Videojuego">Eliminar</button>`);
+                            }
+                            $('#contenedorJuegos').append(div);
+                        });
+                    })
+                    .fail(function() {
+                        alert('Error al cargar los videojuegos');
+                    });
+            }
+    
+            //Manejamos clic en botón eliminar
+            $(document).on('click', '.btn-eliminar', function () {
+                const id = $(this).data('id');
+                const tipo = $(this).data('tipo');
+    
+                $.ajax({
+                    url: '../Controlador/controladorEliminarContenido.php',
+                    method: 'POST',
+                    data: { ID: id, Tipo: tipo },
+                    success: function () {
+                        alert('Contenido eliminado correctamente');
+                        location.reload();
+                    },
+                    error: function () {
+                        alert('Error al eliminar contenido');
+                    }
+                });
+            });
+        });
+    </script>    
+</body>
+</html>

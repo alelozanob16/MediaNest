@@ -10,12 +10,12 @@
     <div id="login">
         <span id="logo"><a href="../index.html">MDNST</a></span>
         <h2>Inicia Sesión en MediaNest</h2>
-        <form action="../Controlador/controladorInicioSesion.php" method="POST">
+        <form id="loginform" action="../Controlador/controladorInicioSesion.php" method="POST">
             <label for="user">Usuario</label>
-            <input type="text" name="user" id="user" required>
+            <input type="text" name="user" id="user">
             <label for="password">Contraseña</label>
             <div id="pass-contenedor">
-                <input type="password" name="password" id="password" required>
+                <input type="password" name="password" id="password">
                 <button id="mostrarPass">👁️</button>
             </div>
             <button type="submit">Iniciar Sesión</button>
@@ -36,6 +36,20 @@
         }
         mostrarPass = $('#mostrarPass');
         mostrarPass[0].addEventListener('click', mostrarContraseña);
+    </script>
+    <script>
+        //Función para evitar que se envie el formulario si se dejan campos vacíos
+        function envioVacio(event){
+            let user = $('#user').val().trim();
+            let password = $('#password').val().trim();
+            //Declaramos las variables en base al valor y quitamos posibles espacios blancos que se hayan puesto por error
+            if(user === ""  || password === ""){
+                event.preventDefault();
+                alert("El nombre del usuario y la contraseña no pueden estar vacíos.");
+            }
+        }
+        let formularioLogin = $('#loginform');
+        formularioLogin[0].addEventListener('submit', envioVacio);
     </script>
 </body>
 </html>

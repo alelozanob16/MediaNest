@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Contenidos.css">
+    <title>Series</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Cargar jQuery -->
+</head>
+<body>
+    <h1>Series</h1>
+    <div class="contenedor" id="contenedorSeries">
+        <!-- Aquí se cargarán las series a través del script de JS -->
+    </div>
+    <script>
+        //Declaramos una variable para saber si el usuario tiene rol de admin
+        let esAdmin = false;
+        
+        //Usamos jQuery para hacer la solicitud AJAX con $.get
+        $(document).ready(function() {
+            // Primero comprobamos el estado de la sesión y el rol del usuario
+            $.get('../Controlador/controladorInicioSesion.php')
+                .done(function(respuesta) {
+                    const datos = JSON.parse(respuesta);
+                    if (datos.estado === '1' && datos.Rol === 'admin') {
+                        esAdmin = true;
+                    }
+                })
+                .then(function() {
+                    //Luego de saber si es admin, cargamos las series
+                    cargarSeries();
+                });
+    
+            //Función para cargar las series
+            function cargarSeries() {
+                $.get('../Controlador/controladorSeries.php')
+                    .done(function(data) {
+                        const series = JSON.parse(data);
+                        series.forEach(function(serie) {
+                            const div = $('<div>').addClass('item');
+                            div.html(`
+                                <img src="imagenes/${serie.Nombre}.jpg" alt="${serie.Nombre}">
+                                <h3>${serie.Nombre}</h3>
+                                <p>Género: ${serie.Genero}</p>
+                                <p>Temporadas: ${serie.Temporadas}</p>
+                                <p>Capítulos: ${serie.Capitulos}</p>
+                                <p>Fecha de estreno: ${new Date(serie.FechaEstreno).toLocaleDateString()}</p>
+                            `);
+                            if (esAdmin) {
+                                div.append(`<button class="btn-eliminar" data-id="${serie.ID}" data-tipo="Serie">Eliminar</button>`);
+                            }
+                            $('#contenedorSeries').append(div);
+                        });
+                    })
+                    .fail(function() {
+                        alert('Error al cargar las series');
+                    });
+            }
+    
+            //Manejamos clic en botón eliminar
+            $(document).on('click', '.btn-eliminar', function () {
+                const id = $(this).data('id');
+                const tipo = $(this).data('tipo');
+    
+                $.ajax({
+                    url: '../Controlador/controladorEliminarContenido.php',
+                    method: 'POST',
+                    data: { ID: id, Tipo: tipo },
+                    success: function () {
+                        alert('Contenido eliminado correctamente');
+                        location.reload();
+                    },
+                    error: function () {
+                        alert('Error al eliminar contenido');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
